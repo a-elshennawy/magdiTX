@@ -1,95 +1,94 @@
+"use client";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { useEffect } from "react";
+import { AiFillInstagram } from "react-icons/ai";
+import { FaFacebookF, FaTiktok } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { TbBrandKickFilled } from "react-icons/tb";
+import { motion } from "motion/react";
 
 export default function Home() {
+  useEffect(() => {
+    // @ts-expect-error - no props needed here
+    import("bootstrap/dist/js/bootstrap.bundle.min.js")
+      .then(() => console.log("bootstrap loaded"))
+      .catch(console.error);
+  }, []);
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, delay: 0.5 }}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background:
+            "radial-gradient(circle at top center, rgba(240, 240, 255, 0.15), transparent 70%)",
+          zIndex: 1,
+        }}
+      />
+      <section className="hero container-fluid row justify-content-center align-items-center text-center m-0">
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+          className="img col-12"
+        >
+          <img src="/imgs/logo.webp" alt="logo" />
+        </motion.div>
+        <div className="text col-12">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+            MAGDITX
+          </motion.h1>
+          <motion.h2
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Read our docs
-          </a>
+            your favourite streamer, gamer, whatever you need
+          </motion.h2>
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            className="links"
+          >
+            <span className="kick">
+              <a href="https://kick.com/magdi53">
+                <TbBrandKickFilled />
+              </a>
+            </span>
+            <span className="tiktok">
+              <a href="https://www.tiktok.com/@realmagdii53">
+                <FaTiktok />
+              </a>
+            </span>
+            <span className="whatsApp">
+              <a href="https://whatsapp.com/channel/0029VarPMkc2ZjCuwttM4M3p">
+                <IoLogoWhatsapp />
+              </a>
+            </span>
+            <span className="instagram">
+              <a href="https://www.instagram.com/hamadamagdy01/">
+                <AiFillInstagram />
+              </a>
+            </span>
+            <span className="facebook">
+              <a href="https://www.facebook.com/magdyabogharbia">
+                <FaFacebookF />
+              </a>
+            </span>
+          </motion.div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+    </>
   );
 }
