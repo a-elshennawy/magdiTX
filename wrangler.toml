@@ -1,0 +1,21 @@
+name = "magditx" 
+compatibility_date = "2025-08-19"
+pages_build_output_dir = ".next"
+
+[pages]
+skip_caching = true  # This helps avoid the cache file size issue
+
+# If you're using environment variables
+[vars]
+NEXT_PUBLIC_APP_URL = "https://your-domain.pages.dev"
+
+# If you need environment-specific configurations
+[env.production]
+vars = { 
+  NEXT_PUBLIC_APP_URL = "https://your-production-domain.com" 
+}
+
+[env.staging]
+vars = { 
+  NEXT_PUBLIC_APP_URL = "https://your-staging-domain.pages.dev" 
+}
