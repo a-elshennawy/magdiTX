@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect } from "react";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebookF, FaTiktok } from "react-icons/fa";
