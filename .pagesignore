@@ -1,6 +1,0 @@
-.cache/
-.next/cache/
-node_modules/
-*.log
-.DS_Store
-*.tmp
